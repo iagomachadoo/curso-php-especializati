@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload de arquivos</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 0px;
+            flex-direction: column;
+        }
+
+        div:first-child{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 32px;
+        }
+
+        div:first-child label{
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload de Arquivos</h1>
+
+    <!-- No caso do upload de múltiplos arquivos, o atributo name deve ser um array a tag input deve conter também o tributo multiple. Esses exemplos de upload de arquivos suportam qualquer tipo de arquivo -->
+
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="imagem">Imagem</label>
+            <input type="file" name="imagens[]" id="imagem" multiple>
+        </div>
+
+        <div>
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+</body>
+</html>
