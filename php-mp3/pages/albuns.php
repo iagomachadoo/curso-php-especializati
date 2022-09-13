@@ -8,30 +8,26 @@
     <!-- O laço forEach está iterando os álbuns que estão vindo do array $albuns-->
     <?php
         $albuns = getAlbuns();//a função getAlbuns está retornando um array
-        
+
         foreach ($albuns as $album) :
         
-        $infoAlbuns = explode('/', $album);
-        
-        $nomeAlbum = $infoAlbuns[1];
-        
-        $diretoriosAlbuns = glob("{$album}/*");
+        $nomeAlbum = explode('/', $album);
 
-        $arquivosAlbum = glob("{$diretoriosAlbuns[0]}/*");
+        $diretoriosAlbum = glob("{$album}/*");
+
+        $caminhoImgCapaAlbum = glob("{$diretoriosAlbum[0]}/*");
         
-        $nomeImagem = explode('/', $arquivosAlbum[0]);
+        $imgCapaAlbum = explode('/', $caminhoImgCapaAlbum[0]); 
         
-        $extensaoImg = explode('.', $nomeImagem[3]);
-        
-        $imgAlbum = "{$album}/{$nomeAlbum}.{$extensaoImg[1]}";
+        $imgAlbum = $caminhoImgCapaAlbum[0];
     ?>
 
     <div class="col-3 d-flex justify-content-center align-items-center">
         <!-- A interrogação na url serve para especificar um parâmetro -->
         <!-- O operador & serve para passar mais de um parâmetro -->
-        <a href="?page=musicas&album=<?=$nomeAlbum?>">
-            <img src="<?=$imgAlbum?>" alt="<?=$nomeAlbum?>" class="img-album img-thumbnail">
-            <h5><?=$nomeAlbum?></h5>
+        <a href="?page=musicas&album=<?=$nomeAlbum[1]?>">
+            <img src="<?=$imgAlbum?>" alt="<?=$nomeAlbum[1]?>" class="img-album img-thumbnail">
+            <h5><?=$nomeAlbum[1]?></h5>
         </a>
     </div>
 
