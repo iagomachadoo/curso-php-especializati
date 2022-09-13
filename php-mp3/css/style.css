@@ -1,0 +1,9 @@
+.img-album{
+    object-fit: cover;
+    height: 230px;
+}
+
+.img-musica{
+    object-fit: cover;
+    height: 300px;
+}
