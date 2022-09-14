@@ -16,7 +16,7 @@ function getMusica($album)
 
 function getCapaMusica($album)
 {
-    $capas = glob("albuns/{$album}/capa-musica/*.jpg");
+    $capas = glob("albuns/{$album}/capa-musicas/*.jpg");
     
     return $capas;
 }

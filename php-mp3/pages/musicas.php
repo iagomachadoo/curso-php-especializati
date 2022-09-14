@@ -4,7 +4,7 @@
     
         <div class="col-6">
             <div class="d-flex justify-content-end">
-                <a class="btn btn-primary" href="?page=new_musicas" role="button">Adicionar Música</a>
+                <a class="btn btn-primary" href="?page=new_musicas&album=<?=$_GET['album']?>" role="button">Adicionar Música</a>
                 
                 <a class="btn btn-success ms-3" href="?page=albuns" role="button">Voltar para Álbuns</a>
             </div>
