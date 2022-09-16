@@ -3,11 +3,23 @@
     height: 230px;
 }
 
+.card-title-mais{
+    height: 50px;
+    font-size: 18px;
+}
+
 .img-musica{
     object-fit: cover;
     height: 300px;
+    position: relative;
 }
 
-.card-title-mais{
-    height: 60px;
+.btn-editar{
+    position: absolute;
+    right: 0px;
+    display: none;
+}
+
+.card-img:hover .btn-editar{
+    display: initial;
 }

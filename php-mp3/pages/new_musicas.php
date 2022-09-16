@@ -11,7 +11,7 @@
     </div>
 
     <div class="mb-3">
-      <label for="musicaAudio" class="form-label">Capa do Álbum</label>
+      <label for="musicaAudio" class="form-label">Música</label>
       <input type="file" class="form-control" name="audio" id="musicaAudio"  aria-describedby="fileHelpId">
     </div>
 
@@ -29,14 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $nomeAlbum = $_GET['album'];
   $caminho = "albuns/{$nomeAlbum}";
 
-  //Verificando se o diretório existe, caso não exista, ele será criado
-  if (!is_dir($caminho)) {
-    mkdir($caminho);
-    mkdir("{$caminho}/capa-album");
-    mkdir("{$caminho}/capa-musicas");
-    mkdir("{$caminho}/musicas");
-  }
-
   $arquivoAudio = $_FILES['audio'];
   $nomeAudio = $_FILES['audio']['name'];
 
@@ -45,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   $moveAudio = move_uploaded_file($arquivoAudio['tmp_name'], $caminho . '/musicas' . '/' . $nomeAudio);
   var_dump($moveAudio);
+
   $moverCapaImagem = move_uploaded_file($arquivoCapaImagem['tmp_name'], $caminho . '/capa-musicas' . '/' . $nomeCapaAlbum);
   var_dump($moverCapaImagem);
   
@@ -56,6 +49,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }else{
     echo 'Falha no upload...';
   }
-
 }
 ?>

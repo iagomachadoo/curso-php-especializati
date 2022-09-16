@@ -32,11 +32,15 @@ $capas = getCapaMusica($album);
         ?>
         
         <div class="col-4">
-            <div class="card" >
-                <img src="<?=$capa?>" class="card-img-top img-musica" alt="...">
+            <di class="card">
+                <div class="card-img">
+                    <img src="<?=$capa?>" class="card-img-top img-fluid img-musica" alt="...">
+                    <a href="?page=editar_img" type="button" class="btn btn-light btn-editar">
+                    <i class="bi bi-pencil"></i>
+                    </a>
+                </div>
                 <div class="card-body">
                     <h5 class="card-title card-title-mais"><?=$nomeMusica[0]?></h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <audio src="<?=$musica?>" controls class="w-100"></audio>
                 </div>
             </div>

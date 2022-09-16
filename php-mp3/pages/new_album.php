@@ -30,12 +30,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $caminho = "albuns/{$nomeAlbum}";
 
   //Verificando se o diretório existe, caso não exista, ele será criado
-  if (!is_dir($caminho)) {
+  if (is_dir($caminho)) {
+    mkdir("{$caminho}/capa-album");
+    mkdir("{$caminho}/capa-musicas");
+    mkdir("{$caminho}/musicas");
+
+  }else if(!is_dir($caminho)){
     mkdir($caminho);
     mkdir("{$caminho}/capa-album");
     mkdir("{$caminho}/capa-musicas");
     mkdir("{$caminho}/musicas");
   }
+
 
   $arquivoImagem = $_FILES['imagem'];
   $infoImagem = explode('/', $arquivoImagem['type']);
